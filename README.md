@@ -1,73 +1,73 @@
-# React + TypeScript + Vite
+# Myewacare Landing Page (Eternity Assignment)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a modern, responsive landing page for **Myewacare**, focusing on health and wellness packages. It features a pixel-perfect implementation of provided designs, including a custom hexagon layout, a responsive navigation bar, and a dynamic hero section.
 
-Currently, two official plugins are available:
+![Project Preview](public/landingPage.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tech Stack
 
-## React Compiler
+- **Framework:** [React](https://reactjs.org/) (TypeScript)
+- **Build Tool:** [Vite](https://vitejs.dev/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Icons:** [Lucide React](https://lucide.dev/)
+- **Typography:** Poppins (Google Fonts)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the ESLint configuration
+- **Responsive Navbar:**
+  - Standard desktop navigation with hover effects.
+  - Mobile-responsive hamburger menu with smooth transitions.
+  
+- **Adaptive Landing Section:**
+  - **Mobile:** Vertical stack layout for readability.
+  - **Laptop/Tablet:** Fluid side-by-side flex layout.
+  - **Desktop (1440px+):** Strict absolute positioning to match the design mockups pixel-for-pixel.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Custom Hexagon Component:**
+  - Interactive hexagon grid layout for features ("Selecting tests", "Doctor consultations", etc.).
+  - Responsive fallback for smaller screens (vertical stack).
+  - SVG-based hexagonal shapes and connectors.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠️ Installation & Setup
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/AbhiRaj021/Eternity-Assignment.git
+   cd Eternity Assignment
+   ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
+
+4. **Build for production:**
+   ```bash
+   npm run build
+   ```
+
+## 📂 Folder Structure
+
+```
+src/
+├── Components/
+│   ├── HomePage/
+│   │   ├── HeroSection.tsx   # Combines LandingPage and Hexagon
+│   │   ├── LandingPage.tsx   # Main hero banner with responsive layouts
+│   │   └── Hexagon.tsx       # Custom SVG hexagon feature grid
+│   └── Navbar/
+│       └── Navbar.tsx        # Responsive navigation bar
+├── App.tsx                   # Main application entry
+└── main.tsx                  # React DOM rendering
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🎨 Design Decisions
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **Pixel Perfection:** The application switches to a fixed coordinate system on large screens (>1440px) to ensure the design matches the provided Figma/image references exactly.
+- **Fluid Layouts:** For layouts between 1024px and 1440px, a flex-row approach is used to prevent element overlap while maintaining a horizontal aesthetic.
+- **Mobile First:** All components degrade gracefully to vertical stacks on smaller screens for optimal mobile usability.
